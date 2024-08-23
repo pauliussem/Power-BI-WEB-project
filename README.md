@@ -77,14 +77,14 @@ Created one more folder (“Metai”) in created folder for saving .csv files by
 
 - Step 10: Turned on data labels for clustered column chart, set display units to none, orientation to vertical and made transparency to 20%, so contrast wouldn’t be so big, when values is on top of a bar. Turned on data labels for line chart too, but left display units to thousands.
 
-									![Data labels](https://github.com/user-attachments/assets/07849d1f-10de-4c1e-936e-c6c32bd92dbe)
+                                                                      ![Data labels](https://github.com/user-attachments/assets/07849d1f-10de-4c1e-936e-c6c32bd92dbe)
 
 
 - Step 11: Made bookmark button to clear all the slicers and filters. Used bookmark button instead of clear all the slicers button, because end-user could filter data not only with slicers. Made same style for any state of a button.
 
 - Step 12: Duplicated first page 2 times, inserted page navigator. In selected state, made grey color of a button. Default state green color. Hover light orange with black letters and press orange with white letters.
 
-									![Page navigator](https://github.com/user-attachments/assets/6b554cf8-11c0-41e6-b8b5-7a8cd7ff756c)
+                                                                      ![Page navigator](https://github.com/user-attachments/assets/6b554cf8-11c0-41e6-b8b5-7a8cd7ff756c)
 
 
 - Step 13: As soon as all page seemed finished, duplicated it 2 times more and deleted first 2 duplicates. 
