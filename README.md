@@ -29,7 +29,7 @@ Created one more folder (“Metai”) in created folder for saving .csv files by
 
 - Step 4: Picked MIN and MAX values from main table column [Year].
   
-#### DAXs was written:
+#### DAXs were written:
 
 	* MIN metai = MIN('Pagrindine info'[METAI])
  	* MAX metai = MAX('Pagrindine info'[METAI])
