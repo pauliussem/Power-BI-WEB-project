@@ -29,20 +29,20 @@ Created one more folder (“Metai”) in created folder for saving .csv files by
 
 - Step 4: Picked MIN and MAX values from main table column [Year].
   
--DAXs was written:
+#### DAXs was written:
 
 	* MIN metai = MIN('Pagrindine info'[METAI])
  	* MAX metai = MAX('Pagrindine info'[METAI])
 
 - Step 5: Created new table “Metai” and wrote a DAX, so this table would refresh depending on relevant years from main table:
 
--DAX was written:
+#### DAX was written:
 
 	* METAI = GENERATESERIES([METAI MIN],[METAI MAX],1)
 
 - Step 6: Created new table for measures. Had to SUM 3 values (applications, declared area and number of fields) of each group.
 
--15 DAXs were written:
+#### 15 DAXs were written:
 
 	* Bendras paraisku = SUM('Pagrindine info'[PARAISKU_SK])
 	* EVV paraiskos = SUM('Pagrindine info'[PER_EL_VALD_PARAISKU_SK])
