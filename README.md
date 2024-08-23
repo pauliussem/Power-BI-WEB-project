@@ -3,11 +3,11 @@
 ### Oracle sql database
 
 - Step 1: Wrote a script to extract information from data base about applications, declared area and number of fields dividing information into 5 groups:
-    • General information;
-    • Natural person;
-    • Legal person;
-    • Applications which were applied through e-gov portal;
-    • Applications to get support for young farmer.
+	* General information;
+	* Natural person;
+ 	* Legal person;
+  	* Applications which were applied through e-gov portal;
+  	* Applications to get support for young farmer.
   
 Since every year has it’s own table and year isn’t provided in any column, made my own column [Metai].
 
@@ -92,10 +92,10 @@ Step 7: Made relationships between METAI[Metai] >  Pagrindine informacija[Metai]
 
 ## Insights
 
-### 3 pages report was created on Power BI desktop. 3 pages were picked to avoid overcrowding information. It was then published in our web page to simplify reading of data for end-user, avoiding tons of excel or pdf files.
+* 3 pages report was created on Power BI desktop. 3 pages were picked to avoid overcrowding information. It was then published in our web page to simplify reading of data for end-user, avoiding tons of excel or pdf files.
 
-### It shows data of 10 years of statistics of provided applications for support, about declared area and number of fields. 
+* It shows data of 10 years of statistics of provided applications for support, about declared area and number of fields. 
 
-### It provides additional information about legal and natural persons, which you can’t find in our web page.
+* It provides additional information about legal and natural persons, which you can’t find in our web page.
 
-### You can compare changes of applications and other groups over the year. You can check number of each group by year and municipality.
+* You can compare changes of applications and other groups over the year. You can check number of each group by year and municipality.
