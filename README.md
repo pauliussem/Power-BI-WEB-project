@@ -2,7 +2,9 @@
 
 "Žemės ūkio duomenų centras" is providing perennial statistics of farmer's applications for support, which includes such information as number of applications by municipality, declared area of each plant, number of fields and other related information. However it had to be more attractive for end-user than tons of excel tables.
 
-I worked with this project from very beginning, till providing HTML addresses for IT department and curating last steps how it looks in our web page. This project was made almost without any experience from the past or support from behind, just watching lesson's videos from last summer data analytics coursies and googling what I couldn't get from lessons.
+I worked with this project from very beginning, till providing HTML addresses for IT department and curating last steps how it looks in our web page. This project was made almost without any experience from the past or support from behind, just watching lesson's videos from last summer's data analytics coursies and googling what I couldn't get from lessons.
+
+https://zudc.lt/deklaruotu-plotu-statistika/
 
 ![pateikimas](https://github.com/user-attachments/assets/6f5e17af-b125-4428-8e51-683c8a211e7c)
 
@@ -23,8 +25,6 @@ While watching at provided statistics in excel tables, I had to decide what kind
 
 
 Since we didn't had any templates or any ideas how it suppose to look, I made design by my self, which was accepted later and published in our webpage.
-
-https://zudc.lt/deklaruotu-plotu-statistika/
 
 Description, steps and all necessary information about all dashboards is provided in branches of this repository.
 
