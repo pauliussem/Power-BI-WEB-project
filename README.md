@@ -45,7 +45,7 @@ Load data into Power BI Desktop, dataset is folder “Year” with .csv files fo
 #### Step 4:
  Picked MIN and MAX values from main table column [Year]. 
 
-    DAXs was written:
+    DAXs were written:
     • MIN metai = MIN('Pagrindine info'[METAI])
     • MAX metai = MAX('Pagrindine info'[METAI])
 
@@ -132,7 +132,7 @@ Load data into Power BI Desktop, dataset is folder “Year” with .csv files fo
 ## Insights
 
 ### 3 pages report was created on Power BI desktop. 3 pages were picked to avoid overcrowding information. 
-### I hid 2nd and 3rd pages so end-user wouldn’t see them after publishing to internet and use buttons instead.
+### I hid 2nd and 3rd pages so end-user wouldn’t see them after publishing to internet and use page navigator buttons instead.
 
 ![1 7](https://github.com/user-attachments/assets/e8227d3b-2415-4d90-997c-4671ad39e96e)
 
