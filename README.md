@@ -26,4 +26,6 @@ Since we didn't had any templates or any ideas how it suppose to look, I made de
 
 https://zudc.lt/deklaruotu-plotu-statistika/
 
-Description, steps and all necessary information about all dashboard is provided in branches of this repository.
+Description, steps and all necessary information about all dashboards is provided in branches of this repository.
+
+I would suggest checking 2nd, 1st, 6th dashboards first.
