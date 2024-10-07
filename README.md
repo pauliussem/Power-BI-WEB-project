@@ -22,4 +22,7 @@ While watching at provided statistics in excel tables, I had to decide what kind
 ![exceliai](https://github.com/user-attachments/assets/e50c802b-6cc2-4d80-96b1-7fee88c4472c)
 
 
-Since we didn't had any templates or any ideas how it suppose to look, I made design by my self, which was accepted later. 
+Since we didn't had any templates or any ideas how it suppose to look, I made design by my self, which was accepted later and published in our webpage.
+
+https://zudc.lt/deklaruotu-plotu-statistika/
+
