@@ -1,218 +1,196 @@
-
-# Airlines-Dashboard
-
-### Dashboard Link : https://app.powerbi.com/groups/me/reports/384d017e-e935-44dc-9e7d-1626c1a36de1/ReportSection
-
-## Problem Statement
-
-This dashboard helps the airlines understand their customers better. It helps the airlines know if their customers are satisfied with their services. Through different ratings, they get to know their improvement area, & thus they can improve their services by identifying these area. It also lets them know the average delay & departure time, thus since by using this dashboard they have identified this problem, they can further work on factors responsible for these unwanted delays.
-
-Since, number of neutral/dissatisfied customers (almost 57 %) are more than satisfied customers (around 43 %), thus in all they must work on improving their services. 
-
-Also since average delay in arrival & departure both is 15 minutes, thus they must try to reduce it.
-
-
-### Steps followed 
-
-- Step 1 : Load data into Power BI Desktop, dataset is a csv file.
-- Step 2 : Open power query editor & in view tab under Data preview section, check "column distribution", "column quality" & "column profile" options.
-- Step 3 : Also since by default, profile will be opened only for 1000 rows so you need to select "column profiling based on entire dataset".
-- Step 4 : It was observed that in none of the columns errors & empty values were present except column named "Arrival Delay".
-- Step 5 : For calculating average delay time, null values were not taken into account as only less than 1% values are null in this column(i.e column named "Arrival Delay") 
-- Step 6 : In the report view, under the view tab, theme was selected.
-- Step 7 : Since the data contains various ratings, thus in order to represent ratings, a new visual was added using the three ellipses in the visualizations pane in report view. 
-- Step 8 : Visual filters (Slicers) were added for four fields named "Class", "Customer Type", "Gate Location" & "Type of travel".
-- Step 9 : Two card visuals were added to the canvas, one representing average departure delay in minutes & other representing average arrival delay in minutes.
-           Using visual level filter from the filters pane, basic filtering was used & null values were unselected for consideration into average calculation.
-           
-           Although, by default, while calculating average, blank values are ignored.
-- Step 10 : A bar chart was also added to the report design area representing the number of satisfied & neutral/unsatisfied customers. While creating this visual, field named "Gender" was also added to the Legends bucket, thus number of customers are also seggregated according the gender. 
-- Step 11 : Ratings Visual was used to represent different ratings mentioned below,
-
-  (a) Baggage Handling
-
-  (b) Check-in Services
-  
-  (c) Cleanliness
-  
-  (d) Ease of online booking
-  
-  (e) Food & Drink
-  
-  (f) In-flight Entertainment
-
-  (g) In-flight Service
-  
-  (h) In-flight wifi service
-  
-  (i) Leg Room service
-  
-  (j) On-board service
-  
-  (k) Online boarding
-  
-  (l) Seat comfort
-  
-  (m) Departure & arrival time convenience
-  
-In our dataset, Some parameters were assigned value 0, representing those parameters are not applicable for some customers.
-
-All these values have been ignored while calculating average rating for each of the parameters mentioned above.
-
-- Step 12 : In the report view, under the insert tab, two text boxes were added to the canvas, in one of them name of the airlines was mentioned & in the other one company's tagline was written.
-- Step 13 : In the report view, under the insert tab, using shapes option from elements group a rectangle was inserted & similarly using image option company's logo was added to the report design area. 
-- Step 14 : Calculated column was created in which, customers were grouped into various age groups.
-
-for creating new column following DAX expression was written;
-       
-        Age Group = 
-        
-        if(airline_passenger_satisfaction[Age]<=25, "0-25 (25 included)",
-        
-        if(airline_passenger_satisfaction[Age]<=50, "25-50 (50 included)",
-        
-        if(airline_passenger_satisfaction[Age]<=75, "50-75 (75 included)",
-        
-        "75-100 (100 included)")))
-        
-Snap of new calculated column ,
-
-![Snap_1](https://user-images.githubusercontent.com/102996550/174089602-ab834a6b-62ce-4b62-8922-a1d241ec240e.jpg)
-
-        
-- Step 15 : New measure was created to find total count of customers.
-
-Following DAX expression was written for the same,
-        
-        Count of Customers = COUNT(airline_passenger_satisfaction[ID])
-        
-A card visual was used to represent count of customers.
-
-![Snap_Count](https://user-images.githubusercontent.com/102996550/174090154-424dc1a4-3ff7-41f8-9617-17a2fb205825.jpg)
-
-        
- - Step 16 : New measure was created to find  % of customers,
  
- Following DAX expression was written to find % of customers,
- 
-         % Customers = (DIVIDE(airline_passenger_satisfaction[Count of Customers], 129880)*100)
- 
- A card visual was used to represent this perecntage.
- 
- Snap of % of customers who preferred business class
- 
- ![Snap_Percentage](https://user-images.githubusercontent.com/102996550/174090653-da02feb4-4775-4a95-affb-a211ca985d07.jpg)
+## Declared plant's groups and plants by municipality.
 
- 
- - Step 17 : New measure was created to calculate total distance travelled by flights & a card visual was used to represent total distance.
- 
- Following DAX expression was written to find total distance,
- 
-         Total Distance Travelled = SUM(airline_passenger_satisfaction[Flight Distance])
-    
- A card visual was used to represent this total distance.
- 
- 
- ![Snap_3](https://user-images.githubusercontent.com/102996550/174091618-bf770d6c-34c6-44d4-9f5e-49583a6d5f68.jpg)
- 
- - Step 18 : The report was then published to Power BI Service.
- 
- 
-![Publish_Message](https://user-images.githubusercontent.com/102996550/174094520-3a845196-97e6-4d44-8760-34a64abc3e77.jpg)
+### Steps followed
 
-# Snapshot of Dashboard (Power BI Service)
+### 1. Oracle sql database
 
-![dashboard_snapo](https://user-images.githubusercontent.com/102996550/174096257-11f1aae5-203d-44fc-bfca-25d37faf3237.jpg)
+### Step 1:
+Wrote a script to extract information from database about declared plants by municipality divided into legal and natural persons.
+Assigned IDs to natural and legal persons and used UNION function to merge information about both of them.
+Since every year has it’s own table and year isn’t provided in data set, made my own column [Metai].
 
- 
- # Report Snapshot (Power BI DESKTOP)
+![2 1](https://github.com/user-attachments/assets/f622c91b-4316-4dff-8119-2870198c7952)
 
- 
-![Dashboard_upload](https://user-images.githubusercontent.com/102996550/174074051-4f08287a-0568-4fdf-8ac9-6762e0d8fa94.jpg)
+### Step 2:
+Created new folder and saved script, so next year I could take exactly the same information from database (Same order, same column names and etc.)
+Created one more folder (“Year”) in created folder to save .csv files by year.
+
+
+### Step 3:
+Extracted required information from all tables from 2015 to 2024 and saved to folder “Year” so I could import all folder into power BI. Had to change only 2 numbers in a script (year value in column [Metai] and table name from database).
+
+![2 2](https://github.com/user-attachments/assets/cb63aac8-9831-493c-9b6f-e03d0f92cdc2)
+
+### Step 4:
+Extracted classifiers from data base:
+- Plant code, name and validation.
+- Group, group name and group number.
+
+
+### Step 5:
+Since I knew, which plant belongs to which group of area, created my own excel table with plant code and group number:
+
+![2 3](https://github.com/user-attachments/assets/e59c295c-0c9e-4b5c-b89a-83c13aee060f)
+
+However,  I had to assign every year to every plant code in my excel sheet, because supporting group for some plants has changed during the years.
+
+![2 4](https://github.com/user-attachments/assets/74239370-d416-497a-8da6-31ed34f3ed9e)
+
+### Step 6:
+Created my own table for legal and netural persons names and IDs.
+
+
+## 2. Power BI query
+
+### Step 1:
+Load data into Power BI Desktop, dataset is folder “Year” with .csv files for each year.
+
+### Step 2:
+In power query deleted unnecessary column Source.name. Renamed table.
+
+### Step 3:
+Load data into Power BI Desktop, data is excel files (classifiers from data base and my own created tables. 
+
+### Step 4:
+In table Naudmenu pavadinimai[GALIOJA_IKI] extracted text before delimeter “-”.
+
+### Step 5:
+Created custom  column in “Naudmenu pavadinimai“ to provide information about validation of plant code. Empty fields in [GALIOJA_IKI] were left empty, which means code is still valid. 
+
+    DAX was written:
+    = Table.AddColumn(#"Extracted Text Before Delimiter", "Galiojimas", each if [GALIOJA_IKI]="" then "" else "(Iki:"&" "&[GALIOJA_IKI]&")")
+
+![2 5](https://github.com/user-attachments/assets/67648619-5529-4e61-9939-7f9a1b64bcc7)
+
+## 3. Power BI Table/Model view.
+
+### Step 1:
+Because  of repetitive plant code every year in tables “Deklaruotos naudmenos“ and “Naudmenos grupės”, wrote 2 DAXs for merging plant code and year, so I could make relationship between these two tables.
+
+    DAXs were written:
+    • Pavadinimai su galiojimu = 'Naudmenu pavadinimai'[KODAS]&" ("&'Naudmenu pavadinimai'- [PAVADINIMAS]&") "&'Naudmenu pavadinimai'[Galiojimas]
+    • Naudmenos pagal metus = 'Naudmenos grupės'[KODAS]&'Naudmenos grupės'[METAI]
+
+### Step 2:
+Now I can relate all of the tables:
+
+![2 6](https://github.com/user-attachments/assets/0d1f31b5-d7fa-416d-8670-f9420ed60ac9)
+
+### Step 3:
+Merged [Kodas], [Pavadinimas] and [Galiojimas] from table ‘Naudmenu pavadinimai’, so I could use it in visual later.
+
+    DAX was written:
+    •Pavadinimai su galiojimu = 'Naudmenu pavadinimai'[KODAS]&" ("&'Naudmenu pavadinimai'[PAVADINIMAS]&") "&'Naudmenu pavadinimai'[Galiojimas]
+
+### Step 4:
+Merged [Pavadinimas] and [Galiojimas] from table ‘Naudmenu pavadinimai’, so I could use it in visual later.
+The only difference from step 3, I removed [KODAS] from DAX, because I am not going to need it in page 2. 
+
+### Step 5:
+Picked ‘Naudmenos grupių pavadinimai‘ [EILE] and in column tools > ‘Sort by column’, picked sort by nr, so it would sort Roman Numerals in order.
+
+![2 7](https://github.com/user-attachments/assets/b37473a9-41ce-4002-b0cb-98d4531be3f9)
+
+### Step 6:
+Made new column in table ‘Naudmenos grupių pavadinimai’. So I could use it in visuals later.
+
+    DAX was written:
+    • Grupė su pavadinimu = 'Naudmenos grupių pavadinimai'[EILE]&" ("&'Naudmenos grupių pavadinimai'[PAVADINIMAS]&")"
+### Step 7:
+ Created table for measures.
+
+	DAX was written:
+	• [ Skaiciavimai] = {Blank()} 
+
+### Step 8:
+ Wrote 2 DAXs to SUM general number of declared area and provided applications.
+
+	DAXs were written:
+	• Bendras paraiskos = SUM('Deklaruotos naudmenos'[PARAISKOS_FJ]);
+	• Bendras plotas = SUM('Deklaruotos naudmenos'[PLOTAS_FJ]).
+
+### Step 9:
+ For calculations set format to custom and custom format to ### ### ##0. for whole numbers and ### ### ##0.00 for decimal numbers.
+### Step 10:
+ Hid all not necessary columns.
+
+## 3. Power BI report view
+
+### Step 1:
+ Prepared template from previous dashboard. Left only my own created table “METAI”, bookmark button, slicer for year and company’s logo.
+### Step 2:
+ Customised current theme:
+- Changed font to arial;
+- Changed wallpaper color to #E0F1D3.
+
+![2 8](https://github.com/user-attachments/assets/1dfc4022-0572-46ae-931a-f78e159b051d)
+
+### Step 3:
+ Saved it in folder “Template”, so I could take a copy of it and prepare new projects on top of it.
+
+### Step 4:
+ Since I could use year information from main table, I deleted “METAI” table.
+
+### Step 5:
+ For data visualization took clustered column chart and matrix:
+- Matrix 2 levels (municipality and year) and values declared area of 9 plant groups.
+- Used 3 clustered column charts to visualize declared area by plant code, by plant classifier group and by grouped areas.
+
+### Step 6:
+ Made 3 slicers to filter data by municipality, plant and year. Used my merged column [Pavadinimai su galiojimu] in slicer “Search by plant”. Added search possibility in 2 slicers, except for years.
+
+### Step 7:
+ Edited interactions between matrix, slicers and clustered column chart from highlight to filer.
+
+### Step 8:
+ Turned on data labels for clustered column chart, set display units to none, orientation to vertical and made transparency to 20%, so contrast wouldn’t be so big. 
+
+### Step 9:
+Made bookmark button to clear all the slicers and filters. Used bookmark button instead of clear all the slicers button, because end-user could filter data not only with slicers. Made same style for any state of a button.
+
+### Step 10:
+Fixed all titles, font, size, bold to picked standard.
+
+### 4. Drill-through page
+
+### Step 1:
+Made second page to represent data about declared plants by municipality.
+
+### Step 2:
+ For data visualization took clustered column chart, matrix and line chart:
+• Matrix:
+• 2 levels (municipality and year). Values declared area and provided applications divided into legal and public persons by picked plant code.
+• Informational matrix about picked plant code and description.
+• Clustered column charts to visualize declared area by picked plant code and municipality.
+• Line chart to visualize change of declared area by picked plant from 2015 to 2024.
+### Step 3:
+
+ Added [NAUDMENOS KODAS] in drill-through field.
+
+### Step 4:
+Added drill-through button on top of visual with data about declared area by plant code. Made inactive button grey and wrote a tip “For button activation, please press on plant code”.
+
+### Step 5:
+ When plant code is pressed, made it orange to stick to standard from previous dashboard. And left space in tool tip, so arrow would appear when mouse is on top of that.
+
+### Step 6:
+ In tool tip > enabled text, I have left space, so arrow without any text would appear when mouse is on top of that and it’s active.
+
+![2 9](https://github.com/user-attachments/assets/702ac2fe-ba07-4811-b1a1-f6479e4b27fc)
+
 
 # Insights
 
-A single page report was created on Power BI Desktop & it was then published to Power BI Service.
+### 1 page report and 1 drill-through page was created. 
 
-Following inferences can be drawn from the dashboard;
+### I hid 2nd page so end-user wouldn’t see it after publishing to internet and use drill-through button instead.
 
-### [1] Total Number of Customers = 129880
-
-   Number of satisfied Customers (Male) = 28159 (21.68 %)
-
-   Number of satisfied Customers (Female) = 28269 (21.76 %)
-
-   Number of neutral/unsatisfied customers (Male) = 35822 (27.58 %)
-
-   Number of neutral/unsatisfied customers (Female) = 37630 (28.97 %)
+![2 10](https://github.com/user-attachments/assets/cf04fe3d-33c8-4b4b-bd5f-d502d3865a5b)
 
 
-           thus, higher number of customers are neutral/unsatisfied.
-           
-### [2] Average Ratings
-
-    a) Baggage Handling - 3.63/5
-    b) Check-in Service - 3.31/5
-    c) Cleanliness - 3.29/5
-    d) Ease of online booking - 2.88/5
-    e) Food & Drink - 3.21/5
-    f) In-flight Entertainment - 3.36/5
-    g) In-flight service - 3.64/5
-    h) In-flight Wifi service - 2.81/5
-    i) Leg room service - 3.37/5
-    j) On-board service - 3.38/5
-    k) Online boarding - 3.33/5
-    l) Seat comfort - 3.44/5
-    m) Departure & arrival convenience - 3.22/5
-  
-  while calculating average rating, null values have been ignored as they were not relevant for some customers. 
-  
-  These ratings will change if different visual filters will be applied.  
-  
-  ### [3] Average Delay 
-  
-      a) Average delay in arrival(minutes) - 15.09
-      b) Average delay in departure(minutes) - 14.71
-Average delay will change if different visual filters will be applied.
-
- ### [4] Some other insights
- 
- ### Class
- 
- 1.1) 47.87 % customers travelled by Business class.
- 
- 1.2) 44.89 % customers travelled by Economy class.
- 
- 1.3) 7.25 % customers travelled by Economy plus class.
- 
-         thus, maximum customers travelled by Business class.
- 
- ### Age Group
- 
- 2.1)  21.69 % customers belong to '0-25' age group.
- 
- 2.2)  52.44 % customers belong to '25-50' age group.
- 
- 2.3)  25.57 % customers belong to '50-75' age group.
- 
- 2.4)  0.31 % customers belong to '75-100' age group.
- 
-         thus, maximum customers belong to '25-50' age group.
-         
-### Customer Type
-
-3.1) 18.31 % customers have customer type 'First time'.
-
-3.2) 81.69 % customers have customer type 'returning'.
-       
-       thus, more customers have customer type 'returning'.
-
-### Type of travel
-
-4.1) 69.06 % customers have travel type 'Business'.
-
-4.2) 30.94 % customers have travel type 'Personal'.
-
-        thus, more customers have travel type 'Business'.
-# Airlines-Dashboard.md.txt
-Pateikiama „# Airlines-Dashboard.md.txt“.
+### Report was moved to Power BI service and published to web. HTML was provided to IT department.
+### It was then published in our web page to simplify reading of data for end-user avoiding tons of excel or pdf files. You would need 2000+ different excel tables to provide 10 years statistics of such information.
+### It visualizes data of 10 years statistics of declared area of plants by municipality. You can check declared area by plant and by classified plant group in all municipalities.
+### It provides additional information about declared area of plant by municipality. Which you can’t find in our website. It is pretty needful information, but it would be tons of excel tables. With help of this report you can easily filter it using visuals or slicer and then using drill-through button. 
+### You can sort plant code by group or by area very easily, check statistics in every municipality and divide it by every year.
